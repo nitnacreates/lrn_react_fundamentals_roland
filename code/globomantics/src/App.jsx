@@ -1,11 +1,14 @@
 import Banner from "./components/Banner"
+import HouseList from "./components/HouseList";
 import "./App.css"
 
 function App() {
   return (
     <>
       <Banner>Providing houses all over the world</Banner>
-      <Banner headerText = "Providing houses "/>
+      <Suspense fallback={<h3>Loading...</h3>}>
+        <HouseList />
+      </Suspense>
     </>
   )
 }
