@@ -4,7 +4,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import useHouses from "../hooks/useHouses";
 import LoadingIndicator from "./LoadingIndicator";
 
-const HouseList = ({selectHouse}) => {     
+const HouseList = () => {     
   const { houses, setHouses, loadingState } = useHouses();
   if (loadingState !== loadingStatus.loaded){
     return <LoadingIndicator loadingState={loadingState} />
@@ -39,7 +39,7 @@ const HouseList = ({selectHouse}) => {
           </thead>
           <tbody>
             <ErrorBoundary fallback="Error loading house rows!">
-              {houses.map(h => <HouseRow key={h.id} house={h} selectHouse={selectHouse} />)}
+              {houses.map(h => <HouseRow key={h.id} house={h} />)}
             </ErrorBoundary>
           </tbody>
         </table>
